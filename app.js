@@ -30,25 +30,11 @@ function watchFormForBreed() {
 
 //generate random pic
 function watchFormForRandomPic() {
-	//on input display images
-	$('.SearchRandomPic').submit((e) => {
-		e.preventDefault();
-		let value = $('.range')[0].value;
-
-		//validator
-		if (value == 0) {
-			$('img').remove();
-			$('.error').text('ERROR');
-		} else {
-			$('.error').text('');
-			getDogImage(value);
-		}
-	});
-
 	//on submit
 	$('.SearchRandomPic').submit((e) => {
 		e.preventDefault();
 		let value = $('.range')[0].value;
+
 		//validator
 		if (value == 0) {
 			$('img').remove();
@@ -58,6 +44,9 @@ function watchFormForRandomPic() {
 			getDogImage(value);
 		}
 	});
+
+
+
 }
 
 //display results for breed
