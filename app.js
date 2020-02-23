@@ -31,7 +31,7 @@ function watchFormForBreed() {
 //generate random pic
 function watchFormForRandomPic() {
 	//on input display images
-	$('.SearchRandomPic').on('submit', (e) => {
+	$('.SearchRandomPic').submit((e) => {
 		e.preventDefault();
 		let value = $('.range')[0].value;
 
