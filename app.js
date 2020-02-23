@@ -36,7 +36,7 @@ function watchFormForRandomPic() {
 		let value = $('.range')[0].value;
 
 		//validator
-		if (value == 0) {
+		if (value <= 0) {
 			$('img').remove();
 			$('.error').text('ERROR');
 		} else {
