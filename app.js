@@ -1,5 +1,5 @@
 //Search by breed
-function getDogBreed (breed){
+function getDogBreed(breed) {
 	fetch(`https://dog.ceo/api/breed/${breed}/images`)
 		.then((response) => response.json())
 		.then((responseJson) => {
@@ -10,7 +10,7 @@ function getDogBreed (breed){
 }
 
 //get random dog pics
-function getDogImage (load = 3){
+function getDogImage(load = 3) {
 	fetch(`https://dog.ceo/api/breeds/image/random/${load}`)
 		.then((response) => response.json())
 		.then((responseJson) => {
@@ -20,7 +20,7 @@ function getDogImage (load = 3){
 		.catch((error) => alert('Something went wrong. Try again later.'));
 }
 //generate by breed
-function watchFormForBreed (){
+function watchFormForBreed() {
 	$('.SearchbyBreed').submit((e) => {
 		e.preventDefault();
 		let value = $('#SearchbyBreed').val().trim();
@@ -29,18 +29,17 @@ function watchFormForBreed (){
 }
 
 //generate random pic
-function watchFormForRandomPic (){
+function watchFormForRandomPic() {
 	//on input display images
-	$('.SearchRandomPic').on('input', () => {
+	$('.SearchRandomPic').on('submit', (e) => {
+		e.preventDefault();
 		let value = $('.range')[0].value;
-		$('.label-range').text(value);
 
 		//validator
 		if (value == 0) {
 			$('img').remove();
 			$('.error').text('ERROR');
-		}
-		else {
+		} else {
 			$('.error').text('');
 			getDogImage(value);
 		}
@@ -54,8 +53,7 @@ function watchFormForRandomPic (){
 		if (value == 0) {
 			$('img').remove();
 			$('.error').text('ERROR');
-		}
-		else {
+		} else {
 			$('.error').text('');
 			getDogImage(value);
 		}
@@ -63,15 +61,14 @@ function watchFormForRandomPic (){
 }
 
 //display results for breed
-function displayResultsForbreed (url){
+function displayResultsForbreed(url) {
 	let random = Math.floor(Math.random() * Math.floor(50));
 	$('img').remove();
 	$('h2').remove();
 	if (url.code == 404) {
 		console.log('error');
 		$('.resultsforBreed').append(`<h2>${url.message}"</h2>`);
-	}
-	else {
+	} else {
 		$('h2').remove();
 		console.log(url);
 		$('.resultsforBreed').append(`<img src="${url.message[random]}" alt="">`);
@@ -79,7 +76,7 @@ function displayResultsForbreed (url){
 }
 
 //display results for random pics
-function displayResultsForRandom (url){
+function displayResultsForRandom(url) {
 	let store = [];
 	$('img').remove();
 	for (let links of url.message) {
@@ -91,7 +88,7 @@ function displayResultsForRandom (url){
 	}
 }
 
-$(function (){
+$(function () {
 	console.log('App loaded! Waiting for submit!');
 	watchFormForRandomPic();
 	watchFormForBreed();
