@@ -8,11 +8,37 @@
 </head>
 <body>
      <div class="container">
-        <h1>Dog API: A Simple Example</h1>
+       <div class="randomPic">
+          <h1>Random dog Pictures </h1>
 
-        <form>
-          <input type="submit" value="Get a dog pic!">
+        <form class="SearchRandomPic">
+            <label for="range" class="label-range">3</label> 
+             <label for="range" class ="error"></label>
+            <input type="range" min ="0" max="50" value= "3" class="range" name ="range" required>
+          <input type="submit" value="Generate">
         </form>
+       
+        <div class="results">
+        
+
+        </div>
+        
+       </div>
+<div class="breed">
+       <h1>Search By Breed</h1>
+        <form class="SearchbyBreed">
+           <input type="text" id="SearchbyBreed" required>
+           <input type="submit">
+          </form>
+
+          <div class="resultsforBreed">
+         
+
+        </div>
+</div>
+     
+
+       
     </div>
  
     

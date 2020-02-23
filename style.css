@@ -7,6 +7,26 @@ body {
 }
 
 .container {
-	max-width: 600px;
+	display: flex;
+	max-width: 90%;
 	margin: 0 auto;
+	justify-content: space-evenly;
+}
+.container h1,
+label,
+input {
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+}
+.results {
+	display: flex;
+
+	flex-wrap: wrap;
+}
+
+.results img {
+	margin: 30px;
+	width: 200px;
+	height: 200px;
 }
